@@ -1,0 +1,14 @@
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Search Jira issues'
+      'submenu': [
+        {
+          'label': 'Open search'
+          'command': 'jira-issue-search:search'
+        }
+      ]
+    ]
+  }
+]

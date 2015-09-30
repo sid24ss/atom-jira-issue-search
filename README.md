@@ -1,2 +1,23 @@
-# atom-jira-issue-search
-Atom package to search Jira issues
+# Jira Issue Search
+
+Package to search Jira issues and open browser to issue
+
+![Screenshot](https://.gif)
+
+![Demo](https://.gif)
+
+# Usage
+
+1. In package settings Set up Jira REST url
+URL should be something like: https://{project}.atlassian.net/rest/api/latest/search/
+
+2. Press cmd-shift-j to open search box
+
+3. Type to make searches
+
+# What is searched?
+Package searches using following filter:
+- Status != Resolved
+- Summary text
+- Desciption text
+- Comment text
