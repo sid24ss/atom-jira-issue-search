@@ -2,9 +2,9 @@
 
 Package to search Jira issues and open browser to issue
 
-![Screenshot](https://.gif)
+![Screenshot](https://raw.githubusercontent.com/samuliheljo/atom-jira-issue-search/master/img/screenshot.png)
 
-![Demo](https://.gif)
+![Demo](https://raw.githubusercontent.com/samuliheljo/atom-jira-issue-search/master/img/demo.gif)
 
 # Usage
 
