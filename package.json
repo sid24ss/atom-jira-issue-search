@@ -12,6 +12,7 @@
   "dependencies": {
     "atom-space-pen-views": "*",
     "lodash": "^3.10.1",
-    "space-pen": "*"
+    "space-pen": "*",
+    "jquery": "*"
   }
 }
