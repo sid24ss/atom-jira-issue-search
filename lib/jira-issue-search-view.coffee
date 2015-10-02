@@ -40,7 +40,12 @@ module.exports = class JiraIssueSearchSelectListView extends SelectListView
     q = @getFilterQuery()
     if q.length < 2 then return
 
-    jql = "status != Resolved and (summary~\"#{q}\" or description~\"#{q}\" or comment~\"#{q}\")"
+    # We must query issue id if we are sure that it's in right format
+    issueIdPattern = /^([\w.]+)-(\d+)$/i;
+    issueIdQuery = if q.match(issueIdPattern) then "or issue = #{q}" else ""
+    console.log(issueIdQuery)
+
+    jql = "status != Resolved and (summary~\"#{q}\" or description~\"#{q}\" or comment~\"#{q}\" #{issueIdQuery})"
     $.ajax
       url: "#{@jiraRestUrl}?jql=#{jql}"
       success: (data) =>

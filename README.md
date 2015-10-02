@@ -23,3 +23,4 @@ Package searches using following filter:
 - Summary text
 - Desciption text
 - Comment text
+- Issue id
