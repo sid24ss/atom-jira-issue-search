@@ -4,6 +4,7 @@ _ = require 'lodash'
 $ = require 'jquery'
 
 module.exports = class JiraIssueSearchSelectListView extends SelectListView
+
   initialize: ->
     super
     # Initialize with dummy data to avoid "Loading icon" from appearing
@@ -28,6 +29,8 @@ module.exports = class JiraIssueSearchSelectListView extends SelectListView
     @panel.show()
     @focusFilterEditor()
     @jiraRestUrl = atom.config.get("jira-issue-search.jiraSearchUrl")
+    @SEARCH_PATH = "/rest/api/latest/search"
+    @VIEW_PATH = "/browse/"
 
   hide: ->
     @panel.hide()
@@ -45,13 +48,13 @@ module.exports = class JiraIssueSearchSelectListView extends SelectListView
     issueIdQuery = if q.match(issueIdPattern) then "or issue = #{q}" else ""
     jql = "status != Resolved and (summary~\"#{q}\" or description~\"#{q}\" or comment~\"#{q}\" #{issueIdQuery})"
     $.ajax
-      url: "#{@jiraRestUrl}?jql=#{jql}"
+      url: "#{@jiraRestUrl}#{@SEARCH_PATH}?jql=#{jql}"
       success: (data) =>
         issues = _.map data.issues, (issue) =>
           assignee = if issue.fields.assignee then issue.fields.assignee.displayName else null
           'key': issue.key
           'desc': issue.fields.summary
-          'url': 'https://digitransit.atlassian.net/browse/' + issue.key
+          'url': "#{@jiraRestUrl}#{@VIEW_PATH}#{issue.key}"
           'status': issue.fields.status.name
           'assignee': assignee
 
@@ -65,4 +68,4 @@ module.exports = class JiraIssueSearchSelectListView extends SelectListView
             @list.append(itemView)
           @selectItemView(@list.find('li:first'))
       error: () ->
-        atom.notifications.addError("Error executing search. Ensure that you have configured Jira url correctly. It should be something like: https://xxx.atlassian.net/rest/api/latest/search/")
+        atom.notifications.addError("Error executing search. Ensure that you have configured Jira url correctly. It should be something like: https://xxx.atlassian.net/")
