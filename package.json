@@ -1,7 +1,7 @@
 {
   "name": "jira-issue-search",
   "main": "./lib/jira-issue-search",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "description": "Search for Jira issues",
   "keywords": [],
   "repository": "https://github.com/samuliheljo/atom-jira-issue-search",
