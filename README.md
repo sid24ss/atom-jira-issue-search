@@ -11,7 +11,7 @@ Package to search Jira issues and open browser to issue
 # Usage
 
 1. In package settings Set up Jira REST url
-URL should be something like: https://{project}.atlassian.net/rest/api/latest/search/
+URL should be something like: https://{project}.atlassian.net/
 
 2. Press cmd-shift-j to open search box
 
