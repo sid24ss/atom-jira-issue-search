@@ -13,5 +13,5 @@
 ## 0.2.2 - Error message
 * Show error message if search fails
 
-## 0.2.3 - Fix open issue bug
+## 1.0.0 - Now you can actually open issues
 * Fix https://github.com/samuliheljo/atom-jira-issue-search/issues/1
