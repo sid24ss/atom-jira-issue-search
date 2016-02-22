@@ -1,2 +1,8 @@
-'atom-workspace':
+'.platform-darwin atom-workspace':
   'cmd-shift-j': 'jira-issue-search:search'
+
+'.platform-win32 atom-workspace':
+  'ctrl-shift-j': 'jira-issue-search:search'
+
+'.platform-linux atom-workspace':
+  'ctrl-shift-j': 'jira-issue-search:search'

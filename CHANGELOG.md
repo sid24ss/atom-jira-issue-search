@@ -15,3 +15,6 @@
 
 ## 1.0.0 - Now you can actually open issues
 * Fix https://github.com/samuliheljo/atom-jira-issue-search/issues/1
+
+## 1.0.1 - Linux keymap support
+* Fix https://github.com/samuliheljo/atom-jira-issue-search/issues/2
