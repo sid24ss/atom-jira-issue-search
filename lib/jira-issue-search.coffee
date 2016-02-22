@@ -5,8 +5,8 @@ module.exports = JiraIssueSearch =
   config:
     jiraSearchUrl:
       type        : 'string'
-      description : 'Jira search REST url'
-      default     : 'https://*.atlassian.net/rest/api/latest/search/'
+      description : 'Jira URL'
+      default     : 'https://*.atlassian.net/'
 
   view: null
   subscriptions: null
