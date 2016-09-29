@@ -1,3 +1,7 @@
+# Note!
+This package requires Jira anonymous access. It won't work if your Jira requires authentication. Help wanted:
+https://github.com/samuliheljo/atom-jira-issue-search/issues/4
+
 # Jira Issue Search
 
 Package to search Jira issues and open browser to issue
