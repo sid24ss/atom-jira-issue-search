@@ -29,6 +29,7 @@ module.exports = class JiraIssueSearchSelectListView extends SelectListView
     @panel.show()
     @focusFilterEditor()
     @jiraRestUrl = atom.config.get("jira-issue-search.jiraSearchUrl")
+    @authKey = atom.config.get("jira-issue-search.authToken")
     @SEARCH_PATH = "/rest/api/latest/search"
     @VIEW_PATH = "/browse/"
 
@@ -49,6 +50,10 @@ module.exports = class JiraIssueSearchSelectListView extends SelectListView
     jql = "status != Resolved and (summary~\"#{q}\" or description~\"#{q}\" or comment~\"#{q}\" #{issueIdQuery})"
     $.ajax
       url: "#{@jiraRestUrl}#{@SEARCH_PATH}?jql=#{jql}"
+      beforeSend: (xhr) =>
+        xhr.withCredentials = true
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
+        xhr.setRequestHeader("Authorization", "Basic #{@authKey}")
       success: (data) =>
         issues = _.map data.issues, (issue) =>
           assignee = if issue.fields.assignee then issue.fields.assignee.displayName else null

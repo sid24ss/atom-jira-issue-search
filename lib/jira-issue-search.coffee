@@ -7,7 +7,10 @@ module.exports = JiraIssueSearch =
       type        : 'string'
       description : 'Jira URL'
       default     : 'https://*.atlassian.net/'
-
+    authToken:
+      type        : 'string'
+      description : 'The authentication token for jira. Generate this with `echo -n \
+                      "username:password" | base64`'
   view: null
   subscriptions: null
 
